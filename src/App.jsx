@@ -16,6 +16,13 @@ function App() {
       });
   }, [offset]);
 
+  const getNumberFromUrl = (url) => {
+    const urlItems = url.split("/");
+    console.log(urlItems);
+
+    return parseInt(urlItems[6]);
+  };
+
   const showPrev = () => {
     setOffset(offset - limit);
   };
@@ -44,9 +51,9 @@ function App() {
             }}
           >
             <img
-              src={`https://cdn.jsdelivr.net/gh/PokeAPI/sprites/sprites/pokemon/${
-                index + 1
-              }.png`}
+              src={`https://cdn.jsdelivr.net/gh/PokeAPI/sprites/sprites/pokemon/${getNumberFromUrl(
+                pocketmon.url
+              )}.png`}
               alt="pocketmon"
             />
             {pocketmon.name}
