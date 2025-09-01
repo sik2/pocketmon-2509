@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 function PocketmonListPage() {
   const [pocketmons, setPocketmons] = useState([]);
@@ -77,7 +78,7 @@ function PocketmonListPage() {
           >
             <span>{pocketmon.imgNum}</span>
             <img src={pocketmon.imgUrl} alt="pocketmon" />
-            <a href={`/detail/${pocketmon.imgNum}`}>{pocketmon.name}</a>
+            <Link to={`/detail/${pocketmon.imgNum}`}>{pocketmon.name}</Link>
           </li>
         ))}
       </ul>
