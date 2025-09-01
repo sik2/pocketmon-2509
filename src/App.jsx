@@ -14,7 +14,22 @@ function App() {
       <h1>포켓몬 도감</h1>
       <ul>
         {pocketmons.map((pocketmon, index) => (
-          <li key={index}>{pocketmon.name}</li>
+          <li
+            key={index}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              borderbottom: "1px solid black",
+            }}
+          >
+            <img
+              src={`https://cdn.jsdelivr.net/gh/PokeAPI/sprites/sprites/pokemon/${
+                index + 1
+              }.png`}
+              alt="pocketmon"
+            />
+            {pocketmon.name}
+          </li>
         ))}
       </ul>
     </>
