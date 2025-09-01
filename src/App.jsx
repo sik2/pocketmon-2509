@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 function App() {
   const [pocketmons, setPocketmons] = useState([]);
@@ -31,7 +31,7 @@ function App() {
     () =>
       pocketmons.map((pocketmon) => {
         // 실행되는지를 테스트
-        console.log("실행됨", ++i);
+        // console.log("실행됨", ++i);
 
         const imgNum = getNumberFromUrl(pocketmon.url);
         const imgUrl = `https://cdn.jsdelivr.net/gh/PokeAPI/sprites/sprites/pokemon/${imgNum}.png`;
@@ -46,13 +46,13 @@ function App() {
     [pocketmons]
   );
 
-  const showPrev = () => {
+  const showPrev = useCallback(() => {
     setOffset(offset - limit);
-  };
+  }, [offset]);
 
-  const showNext = () => {
+  const showNext = useCallback(() => {
     setOffset(offset + limit);
-  };
+  }, [offset]);
 
   if (loding) {
     return <>로딩중...</>;
